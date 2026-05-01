@@ -28,3 +28,5 @@ Skills Demonstrated
 
 Author
 Engineering student specializing in systems, automation, and applied cybersecurity (SOC, incident response, and security data analysis)
+
+Note: This project is a simulated SOC environment for learning purposes and does not process real sensitive data.
