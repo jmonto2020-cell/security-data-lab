@@ -1,0 +1,7 @@
+data/sample_logs.csv
+timestamp,user,ip,event,status
+2025-01-01 10:00,admin,192.168.1.10,login,success
+2025-01-01 10:01,admin,192.168.1.10,login,fail
+2025-01-01 10:02,user1,10.0.0.5,login,fail
+2025-01-01 10:03,user1,10.0.0.5,login,fail
+2025-01-01 10:04,user1,10.0.0.5,login,fail
