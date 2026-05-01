@@ -1,29 +1,30 @@
-# Security Data & Log Analysis Lab
+Security Data & Log Analysis Lab
 
-This project simulates a basic Security Operations (SOC) workflow using log data analysis and ETL processing.
+This project simulates a Security Operations Center (SOC) workflow by processing and analyzing authentication log data to detect suspicious activity and security anomalies.
 
-## Objectives
-- Parse and analyze security log data
-- Detect suspicious login activity
-- Build a simple ETL pipeline for data cleaning
-- Practice SOC-style incident detection thinking
+Objectives
+- Parse and analyze authentication and system log data
+- Detect suspicious login patterns such as repeated failed login attempts
+- Identify potential IP-based anomalies and brute-force behavior
+- Build a simple ETL pipeline for cleaning and transforming raw log data
+- Practice SOC-style incident detection and security monitoring logic
 
-## Structure
-- `sample_logs.csv` → raw log data
-- `scripts/anomaly_detector.py` → detects failed login patterns and suspicious IP activity
-- `scripts/etl_pipeline.py` → cleans and transforms log data
+Structure
+- sample_logs.csv → raw authentication log dataset
+- scripts/etl_pipeline.py → data cleaning and transformation pipeline
+- scripts/anomaly_detector.py → detection of failed login patterns and suspicious activity
 
-## Key Concepts
-- SOC monitoring fundamentals
-- Log analysis and anomaly detection
+Key Concepts
+- SOC monitoring and security event analysis
+- Log parsing and anomaly detection
 - ETL (Extract, Transform, Load) pipelines
-- Data-driven security analysis
+- Basic threat detection logic (failed logins, suspicious IP behavior)
 
-## Skills Demonstrated
-- Python scripting
-- Pandas data processing
-- Security event analysis
-- Basic incident detection logic
+Skills Demonstrated
+- Python for security automation
+- Pandas-based log processing and transformation
+- Security event analysis and pattern detection
+- Basic incident detection and SOC workflow simulation
 
-## Author
-Engineering student focusing on AI, IoT, automation systems and cybersecurity (SOC / incident response).
+Author
+Engineering student specializing in systems, automation, and applied cybersecurity (SOC, incident response, and security data analysis)
