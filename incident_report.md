@@ -8,17 +8,11 @@ The analysis identified repeated failed login attempts originating from specific
 2. Detection Method
 
 A Python-based log analysis pipeline was used to:
-
 •	Parse authentication logs from CSV format 
-
 •	Normalize timestamp and status fields
-
 •	Filter failed login attempts
-
 •	Group events by IP address
-
 •	Count failed login occurrences per IP
-
 •	Apply a threshold-based detection rule
 
 Detection rule:
@@ -27,12 +21,12 @@ Detection rule:
 3. Findings / Evidence
 
 The following suspicious activity was detected:
-•	IP Address: 10.0.0.5 
-o	Failed login attempts: 3 
-o	Timeframe: 2025-01-01 10:02 – 10:04 
-o	Pattern: Consecutive failed login attempts within a short time window 
-•	IP Address: 192.168.1.10 
-o	Failed login attempts: 1 
+•	IP Address: 10.0.0.5
+o	Failed login attempts: 3
+o	Timeframe: 2025-01-01 10:02 – 10:04
+o	Pattern: Consecutive failed login attempts within a short time window
+•	IP Address: 192.168.1.10
+o	Failed login attempts: 1
 o	Status: Not flagged (below threshold)
 
 4. Analysis
