@@ -1,9 +1,12 @@
 Incident Report – Authentication Log Analysis
+
 1. Summary
+
 This report documents the analysis of authentication logs to identify potential brute-force activity and suspicious login behavior. The dataset contains login events with timestamps, usernames, IP addresses, and authentication status (success/fail).
 The analysis identified repeated failed login attempts originating from specific IP addresses, indicating possible automated attack behavior.
 
 2. Detection Method
+
 A Python-based log analysis pipeline was used to:
 •	Parse authentication logs from CSV format 
 •	Normalize timestamp and status fields 
@@ -15,6 +18,7 @@ Detection rule:
 •	Any IP with ≥ 3 failed login attempts is flagged as suspicious
 
 3. Findings / Evidence
+
 The following suspicious activity was detected:
 •	IP Address: 10.0.0.5 
 o	Failed login attempts: 3 
@@ -25,6 +29,7 @@ o	Failed login attempts: 1
 o	Status: Not flagged (below threshold)
 
 4. Analysis
+
 The IP 10.0.0.5 shows characteristics consistent with a brute-force login attempt, including:
 •	Multiple failed authentication attempts in rapid succession 
 •	No successful login following failures 
@@ -34,6 +39,7 @@ This pattern suggests either:
 •	Misconfigured client repeatedly attempting authentication 
 
 5. Conclusion & Recommendations
+
 Conclusion
 The system detected one IP exhibiting behavior consistent with a potential brute-force attack.
 Recommendations
@@ -43,4 +49,5 @@ Recommendations
 •	Integrate alerts into a SIEM system for automated detection 
 
 6. Notes
+
 This analysis is based on simulated log data and is intended for educational purposes only. No real user or production data was used.
