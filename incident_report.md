@@ -8,12 +8,19 @@ The analysis identified repeated failed login attempts originating from specific
 2. Detection Method
 
 A Python-based log analysis pipeline was used to:
+
 •	Parse authentication logs from CSV format 
-•	Normalize timestamp and status fields 
-•	Filter failed login attempts 
-•	Group events by IP address 
-•	Count failed login occurrences per IP 
-•	Apply a threshold-based detection rule 
+
+•	Normalize timestamp and status fields
+
+•	Filter failed login attempts
+
+•	Group events by IP address
+
+•	Count failed login occurrences per IP
+
+•	Apply a threshold-based detection rule
+
 Detection rule:
 •	Any IP with ≥ 3 failed login attempts is flagged as suspicious
 
