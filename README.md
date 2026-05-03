@@ -1,33 +1,67 @@
-Security Data & Log Analysis Lab
+# Security Data & Log Analysis Lab
 
-This project simulates a Security Operations Center (SOC) workflow by processing and analyzing authentication log data to detect suspicious activity and security anomalies.
+This project simulates a Security Operations Center (SOC) workflow by analyzing authentication log data to detect suspicious activity and potential brute-force attacks.
 
-Objectives
-- Parse and analyze authentication and system log data
-- Detect suspicious login patterns such as repeated failed login attempts
-- Identify potential IP-based anomalies and brute-force behavior
-- Build a simple ETL pipeline for cleaning and transforming raw log data
-- Practice SOC-style incident detection and security monitoring logic
+## Overview
 
-Structure
-- sample_logs.csv → raw authentication log dataset
-- scripts/etl_pipeline.py → data cleaning and transformation pipeline
-- scripts/anomaly_detector.py → detection of failed login patterns and suspicious activity
+The dataset contains login events with timestamps, users, IP addresses, and authentication status.
+The project processes raw logs, cleans the data, and applies detection logic to identify abnormal patterns.
 
-Key Concepts
-- SOC monitoring and security event analysis
-- Log parsing and anomaly detection
-- ETL (Extract, Transform, Load) pipelines
-- Basic threat detection logic (failed logins, suspicious IP behavior)
+## Objectives
 
-Skills Demonstrated
-- Python for security automation
-- Pandas-based log processing and transformation
-- Security event analysis and pattern detection
-- Basic incident detection and SOC workflow simulation
+* Parse and analyze authentication logs
+* Detect repeated failed login attempts
+* Identify suspicious IP behavior
+* Simulate SOC-style monitoring and alerting
+* Build a basic ETL pipeline for log processing
 
-Author
-Engineering student specializing in systems, automation, and applied cybersecurity (SOC, incident response, and security data analysis)
+## Workflow
 
-Note: This project is a simulated SOC environment for learning purposes and does not process real sensitive data.
+1. **ETL Pipeline**
 
+   * Cleaned and normalized log data (timestamps, status fields)
+   * Removed invalid or missing entries
+
+2. **Detection Logic**
+
+   * Filtered failed login attempts
+   * Grouped events by IP address
+   * Applied threshold-based detection
+
+3. **Alert Generation**
+
+   * Flagged IPs exceeding failed login thresholds
+   * Generated alerts for potential brute-force activity
+
+## Example Detection
+
+The analysis identified the following suspicious behavior:
+
+* IP `10.0.0.5` generated **3 consecutive failed login attempts**
+* This exceeds the defined threshold and is flagged as a potential brute-force attempt
+
+## Key Concepts
+
+* SOC monitoring and alerting
+* Log parsing and anomaly detection
+* Basic threat detection (brute-force attacks)
+* ETL pipelines for security data
+
+## Skills Demonstrated
+
+* Python for security automation
+* Pandas for log analysis
+* Detection logic design
+* Security event analysis
+
+## Author
+
+Engineering student focusing on cybersecurity, with interest in:
+
+* Security Operations Center (SOC)
+* Incident Response (IR)
+* Security data analysis
+
+##  Note
+
+This project uses simulated data and is intended for educational purposes only.
