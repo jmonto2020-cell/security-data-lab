@@ -1,46 +1,100 @@
-Incident Report – Authentication Log Analysis
+# Security Incident Report – Authentication Log Analysis
 
-Summary
+## 1. Overview
 
-This report documents the analysis of authentication logs to identify potential brute-force activity and suspicious login behavior. The dataset contains login events with timestamps, usernames, IP addresses, and authentication status (success/fail). The analysis identified repeated failed login attempts originating from specific IP addresses, indicating possible automated attack behavior.
+This report documents the analysis of authentication logs to identify suspicious login activity and potential brute-force attempts.
 
-Detection Method
+The dataset contains authentication events with timestamps, usernames, IP addresses, event types, and login status (success/fail).
 
-A Python-based log analysis pipeline was used to: • Parse authentication logs from CSV format • Normalize timestamp and status fields • Filter failed login attempts • Group events by IP address • Count failed login occurrences per IP • Apply a threshold-based detection rule
+The objective of this analysis is to detect abnormal login behavior and simulate a basic Security Operations Center (SOC) detection workflow.
 
-Detection rule: • Any IP with ≥ 3 failed login attempts is flagged as suspicious
+---
 
-Findings / Evidence
+## 2. Scope
 
-The following suspicious activity was detected:
+The analysis focuses on:
 
-• IP Address: 10.0.0.5
+- Authentication failure patterns
+- IP-based login anomalies
+- Repeated login attempts within short time intervals
 
-    o	Failed login attempts: 3 
+No production or real user data is used. All data is simulated for educational purposes.
 
-    o	Timeframe: 2025-01-01 10:02 – 10:04 
+---
 
-    o	Pattern: Consecutive failed login attempts within a short time window 
-    
-• IP Address: 192.168.1.10
+## 3. Detection Methodology
 
-    o	Failed login attempts: 1 
+The log data was processed using Python and Pandas. The following steps were performed:
 
-    o	Status: Not flagged (below threshold) 
+- Loading and parsing CSV log data
+- Normalization of timestamp and status fields
+- Filtering failed login events
+- Grouping events by IP address
+- Counting failed login attempts per IP
+- Applying a threshold-based detection rule (≥ 3 failed attempts)
 
-Analysis
+---
 
-The IP 10.0.0.5 shows characteristics consistent with a brute-force login attempt, including: • Multiple failed authentication attempts in rapid succession • No successful login following failures • Repetitive login behavior from a single source IP
+## 4. Findings
 
-This pattern suggests either: • Automated attack tool activity or misconfigured client repeatedly attempting authentication
+### 4.1 Suspicious IP Activity
 
-Conclusion & Recommendations
+| IP Address   | Failed Attempts | Status   |
+|--------------|----------------|----------|
+| 10.0.0.5     | 3              | Flagged  |
 
-Conclusion 
-The system detected one IP exhibiting behavior consistent with a potential brute-force attack.
+### 4.2 Event Summary
 
-Recommendations 
-• Implement IP-based rate limiting • Introduce account lockout after repeated failed attempts • Monitor repeated authentication failures in real time • Integrate alerts into a SIEM system for automated detection
+- IP address 10.0.0.5 generated multiple failed login attempts
+- Attempts occurred within a short time window (10:02–10:04)
+- No successful authentication recorded for this IP during the observed period
+
+---
+
+## 5. Analysis
+
+The observed behavior from IP 10.0.0.5 is consistent with a brute-force login attempt pattern.
+
+Key indicators:
+
+- Multiple consecutive authentication failures
+- Short time interval between attempts
+- No successful login following repeated failures
+
+This behavior is commonly associated with automated login attacks or credential-guessing activity.
+
+---
+
+## 6. Risk Assessment
+
+| Severity | Description |
+|----------|------------|
+| Medium   | Repeated failed authentication attempts from a single IP may indicate brute-force activity |
+
+---
+
+## 7. Recommendations
+
+- Implement rate limiting on authentication endpoints
+- Introduce account lockout after repeated failed login attempts
+- Monitor failed login patterns in real time
+- Integrate authentication logs into a SIEM system for automated alerting
+
+---
+
+## 8. Conclusion
+
+The analysis identified one IP address exhibiting behavior consistent with a potential brute-force attack pattern.
+
+While no successful login was observed, the repeated failures indicate suspicious activity that should be monitored or blocked in a production environment.
+
+---
+
+## 9. Tools Used
+
+- Python 3
+- Pandas
+- CSV log dataset
 
 Notes
 
