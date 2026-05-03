@@ -22,12 +22,12 @@ Detection rule:
 
 The following suspicious activity was detected:
 •	IP Address: 10.0.0.5
-o	Failed login attempts: 3
-o	Timeframe: 2025-01-01 10:02 – 10:04
-o	Pattern: Consecutive failed login attempts within a short time window
+  o	Failed login attempts: 3
+  o	Timeframe: 2025-01-01 10:02 – 10:04
+  o	Pattern: Consecutive failed login attempts within a short time window
 •	IP Address: 192.168.1.10
-o	Failed login attempts: 1
-o	Status: Not flagged (below threshold)
+  o	Failed login attempts: 1
+  o	Status: Not flagged (below threshold)
 
 4. Analysis
 
